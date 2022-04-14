@@ -5,6 +5,9 @@
     <string name="title_help">Help</string>
     <string name="player1">Player 1 Wins!</string>
     <string name="player2">Player 2 Wins!</string>
+    <string name="no_winner">Bummer! No winner this time.</string>
+    <string name="Player1turn">"Player 1's turn"</string>
+    <string name="Player2turn">"Player 2's turn"</string>
     <string name="help_instructions">A player must get three in a row to win!</string>
     <string name="light_bulb">Light bulb</string>
     <string name="new_game">New Game</string>
