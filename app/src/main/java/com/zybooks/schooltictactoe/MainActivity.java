@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageButton;
 import androidx.annotation.NonNull;
@@ -39,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private GridLayout mBoxGrid;
     private int mBoxOnSelected;
     private int count;
+    private int reset;
+
+    private TextView status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
         mBoxGrid = findViewById(R.id.box_grid);
 
+        status = findViewById(R.id.status);
+
         mBoxOnSelected = ContextCompat.getColor(this, R.color.white);
 
         count=1;
@@ -74,137 +80,119 @@ public class MainActivity extends AppCompatActivity {
 
         btn1row1.setOnClickListener(arg0 -> {
             if (count == 1 && !b1r1) {
-                count = 2;
                 btn1row1.setBackgroundResource(R.drawable.nighthawk_button);
                 b1r1 = true;
                 check_b1r1 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b1r1) {
-                count = 1;
                 btn1row1.setBackgroundResource(R.drawable.building_button);
                 b1r1 = true;
                 check_b1r1 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
         btn1row2.setOnClickListener(arg0 -> {
             if (count == 1 && !b1r2) {
-                count = 2;
                 btn1row2.setBackgroundResource(R.drawable.nighthawk_button);
                 b1r2 = true;
                 check_b1r2 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b1r2) {
-                count = 1;
                 btn1row2.setBackgroundResource(R.drawable.building_button);
                 b1r2 = true;
                 check_b1r2 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
         btn1row3.setOnClickListener(arg0 -> {
             if (count == 1 && !b1r3) {
-                count = 2;
                 btn1row3.setBackgroundResource(R.drawable.nighthawk_button);
                 b1r3 = true;
                 check_b1r3 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b1r3) {
-                count = 1;
                 btn1row3.setBackgroundResource(R.drawable.building_button);
                 b1r3 = true;
                 check_b1r3 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
         btn2row1.setOnClickListener(arg0 -> {
             if (count == 1 && !b2r1) {
-                count = 2;
                 btn2row1.setBackgroundResource(R.drawable.nighthawk_button);
                 b2r1 = true;
                 check_b2r1 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b2r1) {
-                count = 1;
                 btn2row1.setBackgroundResource(R.drawable.building_button);
                 b2r1 = true;
                 check_b2r1 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
         btn2row2.setOnClickListener(arg0 -> {
             if (count == 1 && !b2r2) {
-                count = 2;
                 btn2row2.setBackgroundResource(R.drawable.nighthawk_button);
                 b2r2 = true;
                 check_b2r2 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b2r2) {
-                count = 1;
                 btn2row2.setBackgroundResource(R.drawable.building_button);
                 b2r2 = true;
                 check_b2r2 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
         btn2row3.setOnClickListener(arg0 -> {
             if (count == 1 && !b2r3) {
-                count = 2;
                 btn2row3.setBackgroundResource(R.drawable.nighthawk_button);
                 b2r3 = true;
                 check_b2r3 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b2r3) {
-                count = 1;
                 btn2row3.setBackgroundResource(R.drawable.building_button);
                 b2r3 = true;
                 check_b2r3 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
         btn3row1.setOnClickListener(arg0 -> {
             if (count == 1 && !b3r1) {
-                count = 2;
                 btn3row1.setBackgroundResource(R.drawable.nighthawk_button);
                 b3r1 = true;
                 check_b3r1 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b3r1) {
-                count = 1;
                 btn3row1.setBackgroundResource(R.drawable.building_button);
                 b3r1 = true;
                 check_b3r1 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
         btn3row2.setOnClickListener(arg0 -> {
             if (count == 1 && !b3r2) {
-                count = 2;
                 btn3row2.setBackgroundResource(R.drawable.nighthawk_button);
                 b3r2 = true;
                 check_b3r2 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b3r2) {
-                count = 1;
                 btn3row2.setBackgroundResource(R.drawable.building_button);
                 b3r2 = true;
                 check_b3r2 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
         btn3row3.setOnClickListener(arg0 -> {
             if (count == 1 && !b3r3) {
-                count = 2;
                 btn3row3.setBackgroundResource(R.drawable.nighthawk_button);
                 b3r3 = true;
                 check_b3r3 = 1;
-                isGameOver();
+                onClickPlayer1();
             } else if (count == 2 && !b3r3) {
-                count = 1;
                 btn3row3.setBackgroundResource(R.drawable.building_button);
                 b3r3 = true;
                 check_b3r3 = 2;
-                isGameOver();
+                onClickPlayer2();
             }
         });
     }
@@ -218,6 +206,20 @@ public class MainActivity extends AppCompatActivity {
     public void onHelpClick(View view) {
         Intent intent = new Intent(this, HelpActivity.class);
         startActivity(intent);
+    }
+
+    private void onClickPlayer1() {
+        isGameOver();
+        reset++;
+        count = 2;
+        status.setText("Player 2's Turn");
+    }
+
+    private void onClickPlayer2() {
+        isGameOver();
+        reset++;
+        count=1;
+        status.setText("Player 1's Turn");
     }
 
     private void startGame() {
@@ -286,43 +288,48 @@ public class MainActivity extends AppCompatActivity {
         if ((check_b3r1 == 2) && (check_b2r2 == 2) && (check_b1r3 == 2)){
             gameOverPlayer2();
         }
+
+        // No winner
+        if (reset == 9) {
+            gameOverNoWinner();
+        }
+    }
+
+    public void lockBoard() {
+        b1r1 = true;
+        b2r1 = true;
+        b3r1 = true;
+        b1r2 = true;
+        b2r2 = true;
+        b3r2 = true;
+        b1r3 = true;
+        b2r3 = true;
+        b3r3 = true;
+    }
+
+    public void unlockBoard() {
+        b1r1 = false;
+        b2r1 = false;
+        b3r1 = false;
+        b1r2 = false;
+        b2r2 = false;
+        b3r2 = false;
+        b1r3 = false;
+        b2r3 = false;
+        b3r3 = false;
     }
 
     public void gameOverPlayer1() {
         Toast.makeText(this, R.string.player1, Toast.LENGTH_SHORT).show();
-
-        b1r1 = true;
-        b2r1 = true;
-        b3r1 = true;
-        b1r2 = true;
-        b2r2 = true;
-        b3r2 = true;
-        b1r3 = true;
-        b2r3 = true;
-        b3r3 = true;
+        lockBoard();
     }
     public void gameOverPlayer2() {
         Toast.makeText(this, R.string.player2, Toast.LENGTH_SHORT).show();
-
-        b1r1 = true;
-        b2r1 = true;
-        b3r1 = true;
-        b1r2 = true;
-        b2r2 = true;
-        b3r2 = true;
-        b1r3 = true;
-        b2r3 = true;
-        b3r3 = true;
+        lockBoard();
     }
-
-    /*public void onLightButtonClick(View view) {
-        // Find the button's row and col
-        int buttonIndex = mBoxGrid.indexOfChild(view);
-        int row = buttonIndex / TicTacToe.GRID_SIZE;
-        int col = buttonIndex % TicTacToe.GRID_SIZE;
-
-        mGame.selectBox(row, col);
-    }*/
+    public void gameOverNoWinner() {
+        Toast.makeText(this, R.string.no_winner, Toast.LENGTH_SHORT).show();
+    }
 
     private void setButtonPicturesFirst() {
         for (int row = 0; row < TicTacToe.GRID_SIZE; row++) {
@@ -338,16 +345,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onNewGameClick(View view) {
-        //startGame();
-        b1r1 = false;
-        b2r1 = false;
-        b3r1 = false;
-        b1r2 = false;
-        b2r2 = false;
-        b3r2 = false;
-        b1r3 = false;
-        b2r3 = false;
-        b3r3 = false;
+        unlockBoard();
+
+        status.setText("Player 1's Turn");
 
         check_b1r1 = 0;
         check_b2r1 = 0;
