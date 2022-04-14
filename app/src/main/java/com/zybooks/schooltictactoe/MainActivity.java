@@ -290,7 +290,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // No winner
-        if (reset == 9) {
+        if (reset == 8) {
             gameOverNoWinner();
         }
     }
@@ -360,6 +360,8 @@ public class MainActivity extends AppCompatActivity {
         check_b3r3 = 0;
 
         count = 1;
+        
+        reset = 0;
 
         setButtonPicturesFirst();
     }
