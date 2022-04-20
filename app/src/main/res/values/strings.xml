@@ -11,4 +11,6 @@
     <string name="help_instructions">A player must get three in a row to win!</string>
     <string name="light_bulb">Light bulb</string>
     <string name="new_game">New Game</string>
+    <string name="nowinner">Must start new game</string>
+    <string name="choose_another">Please choose another tile</string>
 </resources>
