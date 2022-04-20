@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageButton;
@@ -11,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-public class MainActivity extends AppCompatActivity {
+import java.text.BreakIterator;
+
+public class MainActivity<variableName> extends AppCompatActivity {
     private ImageButton btn1row1, btn2row1, btn3row1, btn1row2, btn2row2, btn3row2, btn1row3, btn2row3, btn3row3;
 
     private boolean b1r1 = false;
@@ -40,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
     private GridLayout mBoxGrid;
     private int mBoxOnSelected;
     private int count;
-    private int reset;
+    private int reset = 0;
+    private boolean over = false;
 
     private TextView status;
 
@@ -84,11 +88,18 @@ public class MainActivity extends AppCompatActivity {
                 b1r1 = true;
                 check_b1r1 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b1r1) {
+            }
+            else if (count == 2 && !b1r1) {
                 btn1row1.setBackgroundResource(R.drawable.building_button);
                 b1r1 = true;
                 check_b1r1 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
         btn1row2.setOnClickListener(arg0 -> {
@@ -97,11 +108,18 @@ public class MainActivity extends AppCompatActivity {
                 b1r2 = true;
                 check_b1r2 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b1r2) {
+            }
+            else if (count == 2 && !b1r2) {
                 btn1row2.setBackgroundResource(R.drawable.building_button);
                 b1r2 = true;
                 check_b1r2 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
         btn1row3.setOnClickListener(arg0 -> {
@@ -110,11 +128,18 @@ public class MainActivity extends AppCompatActivity {
                 b1r3 = true;
                 check_b1r3 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b1r3) {
+            }
+            else if (count == 2 && !b1r3) {
                 btn1row3.setBackgroundResource(R.drawable.building_button);
                 b1r3 = true;
                 check_b1r3 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
         btn2row1.setOnClickListener(arg0 -> {
@@ -123,11 +148,18 @@ public class MainActivity extends AppCompatActivity {
                 b2r1 = true;
                 check_b2r1 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b2r1) {
+            }
+            else if (count == 2 && !b2r1) {
                 btn2row1.setBackgroundResource(R.drawable.building_button);
                 b2r1 = true;
                 check_b2r1 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
         btn2row2.setOnClickListener(arg0 -> {
@@ -136,11 +168,18 @@ public class MainActivity extends AppCompatActivity {
                 b2r2 = true;
                 check_b2r2 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b2r2) {
+            }
+            else if (count == 2 && !b2r2) {
                 btn2row2.setBackgroundResource(R.drawable.building_button);
                 b2r2 = true;
                 check_b2r2 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
         btn2row3.setOnClickListener(arg0 -> {
@@ -149,11 +188,18 @@ public class MainActivity extends AppCompatActivity {
                 b2r3 = true;
                 check_b2r3 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b2r3) {
+            }
+            else if (count == 2 && !b2r3) {
                 btn2row3.setBackgroundResource(R.drawable.building_button);
                 b2r3 = true;
                 check_b2r3 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
         btn3row1.setOnClickListener(arg0 -> {
@@ -162,11 +208,18 @@ public class MainActivity extends AppCompatActivity {
                 b3r1 = true;
                 check_b3r1 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b3r1) {
+            }
+            else if (count == 2 && !b3r1) {
                 btn3row1.setBackgroundResource(R.drawable.building_button);
                 b3r1 = true;
                 check_b3r1 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
         btn3row2.setOnClickListener(arg0 -> {
@@ -175,11 +228,18 @@ public class MainActivity extends AppCompatActivity {
                 b3r2 = true;
                 check_b3r2 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b3r2) {
+            }
+            else if (count == 2 && !b3r2) {
                 btn3row2.setBackgroundResource(R.drawable.building_button);
                 b3r2 = true;
                 check_b3r2 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
         btn3row3.setOnClickListener(arg0 -> {
@@ -188,11 +248,18 @@ public class MainActivity extends AppCompatActivity {
                 b3r3 = true;
                 check_b3r3 = 1;
                 onClickPlayer1();
-            } else if (count == 2 && !b3r3) {
+            }
+            else if (count == 2 && !b3r3) {
                 btn3row3.setBackgroundResource(R.drawable.building_button);
                 b3r3 = true;
                 check_b3r3 = 2;
                 onClickPlayer2();
+            }
+            else if (over == true) {
+                Toast.makeText(this, R.string.nowinner, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, R.string.choose_another, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -211,15 +278,11 @@ public class MainActivity extends AppCompatActivity {
     private void onClickPlayer1() {
         isGameOver();
         reset++;
-        count = 2;
-        status.setText("Player 2's Turn");
     }
 
     private void onClickPlayer2() {
         isGameOver();
         reset++;
-        count=1;
-        status.setText("Player 1's Turn");
     }
 
     private void startGame() {
@@ -227,71 +290,85 @@ public class MainActivity extends AppCompatActivity {
         setButtonPicturesFirst();
     }
 
+    public void playerTurn() {
+        if (count == 1) {
+            count = 2;
+            status.setText("Player 2's Turn");
+        }
+        else if (count == 2) {
+            count = 1;
+            status.setText("Player 1's Turn");
+        }
+    }
+
     public void isGameOver(){
         if ((check_b1r1 == 1) && (check_b2r1 == 1) && (check_b3r1 == 1)){
             gameOverPlayer1();
         }
-        if ((check_b1r2 == 1) && (check_b2r2 == 1) && (check_b3r2 == 1)){
+        else if ((check_b1r2 == 1) && (check_b2r2 == 1) && (check_b3r2 == 1)){
             gameOverPlayer1();
         }
-        if ((check_b1r3 == 1) && (check_b2r3 == 1) && (check_b3r3 == 1)){
+        else if ((check_b1r3 == 1) && (check_b2r3 == 1) && (check_b3r3 == 1)){
             gameOverPlayer1();
         }
 
         // Down
-        if ((check_b1r1 == 1) && (check_b1r2 == 1) && (check_b1r3 == 1)){
+        else if ((check_b1r1 == 1) && (check_b1r2 == 1) && (check_b1r3 == 1)){
             gameOverPlayer1();
         }
-        if ((check_b2r1 == 1) && (check_b2r2 == 1) && (check_b2r3 == 1)){
+        else if ((check_b2r1 == 1) && (check_b2r2 == 1) && (check_b2r3 == 1)){
             gameOverPlayer1();
         }
-        if ((check_b3r1 == 1) && (check_b3r2 == 1) && (check_b3r3 == 1)){
+        else if ((check_b3r1 == 1) && (check_b3r2 == 1) && (check_b3r3 == 1)){
             gameOverPlayer1();
         }
 
         // Diagonal
-        if ((check_b1r1 == 1) && (check_b2r2 == 1) && (check_b3r3 == 1)){
+        else if ((check_b1r1 == 1) && (check_b2r2 == 1) && (check_b3r3 == 1)){
             gameOverPlayer1();
         }
-        if ((check_b3r1 == 1) && (check_b2r2 == 1) && (check_b1r3 == 1)){
+        else if ((check_b3r1 == 1) && (check_b2r2 == 1) && (check_b1r3 == 1)){
             gameOverPlayer1();
         }
 
 
 
         // Across
-        if ((check_b1r1 == 2) && (check_b2r1 == 2) && (check_b3r1 == 2)){
+        else if ((check_b1r1 == 2) && (check_b2r1 == 2) && (check_b3r1 == 2)){
             gameOverPlayer2();
         }
-        if ((check_b1r2 == 2) && (check_b2r2 == 2) && (check_b3r2 == 2)){
+        else if ((check_b1r2 == 2) && (check_b2r2 == 2) && (check_b3r2 == 2)){
             gameOverPlayer2();
         }
-        if ((check_b1r3 == 2) && (check_b2r3 == 2) && (check_b3r3 == 2)){
+        else if ((check_b1r3 == 2) && (check_b2r3 == 2) && (check_b3r3 == 2)){
             gameOverPlayer2();
         }
 
         // Down
-        if ((check_b1r1 == 2) && (check_b1r2 == 2) && (check_b1r3 == 2)){
+        else if ((check_b1r1 == 2) && (check_b1r2 == 2) && (check_b1r3 == 2)){
             gameOverPlayer2();
         }
-        if ((check_b2r1 == 2) && (check_b2r2 == 2) && (check_b2r3 == 2)){
+        else if ((check_b2r1 == 2) && (check_b2r2 == 2) && (check_b2r3 == 2)){
             gameOverPlayer2();
         }
-        if ((check_b3r1 == 2) && (check_b3r2 == 2) && (check_b3r3 == 2)){
+        else if ((check_b3r1 == 2) && (check_b3r2 == 2) && (check_b3r3 == 2)){
             gameOverPlayer2();
         }
 
         // Diagonal
-        if ((check_b1r1 == 2) && (check_b2r2 == 2) && (check_b3r3 == 2)){
+        else if ((check_b1r1 == 2) && (check_b2r2 == 2) && (check_b3r3 == 2)){
             gameOverPlayer2();
         }
-        if ((check_b3r1 == 2) && (check_b2r2 == 2) && (check_b1r3 == 2)){
+        else if ((check_b3r1 == 2) && (check_b2r2 == 2) && (check_b1r3 == 2)){
             gameOverPlayer2();
         }
 
         // No winner
-        if (reset == 8) {
+        else if (reset == 8) {
             gameOverNoWinner();
+        }
+        else {
+            playerTurn();
         }
     }
 
@@ -305,6 +382,8 @@ public class MainActivity extends AppCompatActivity {
         b1r3 = true;
         b2r3 = true;
         b3r3 = true;
+
+        over = true;
     }
 
     public void unlockBoard() {
@@ -319,16 +398,18 @@ public class MainActivity extends AppCompatActivity {
         b3r3 = false;
     }
 
+
+
     public void gameOverPlayer1() {
-        Toast.makeText(this, R.string.player1, Toast.LENGTH_SHORT).show();
+        status.setText("Player 1 Wins!");
         lockBoard();
     }
     public void gameOverPlayer2() {
-        Toast.makeText(this, R.string.player2, Toast.LENGTH_SHORT).show();
+        status.setText("Player 2 Wins!");
         lockBoard();
     }
     public void gameOverNoWinner() {
-        Toast.makeText(this, R.string.no_winner, Toast.LENGTH_SHORT).show();
+        status.setText("Bummer! No winner this time!");
     }
 
     private void setButtonPicturesFirst() {
@@ -347,6 +428,7 @@ public class MainActivity extends AppCompatActivity {
     public void onNewGameClick(View view) {
         unlockBoard();
 
+
         status.setText("Player 1's Turn");
 
         check_b1r1 = 0;
@@ -359,10 +441,13 @@ public class MainActivity extends AppCompatActivity {
         check_b2r3 = 0;
         check_b3r3 = 0;
 
+        over = false;
+
         count = 1;
-        
+
         reset = 0;
 
         setButtonPicturesFirst();
     }
+
 }
